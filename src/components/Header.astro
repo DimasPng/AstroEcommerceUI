@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon'
+
+import logo from '../assets/images/logo_1.png'
+import vodafone from '../assets/images/mts.png'
+import kyivstar from '../assets/images/ks.png'
+import delivery from '../assets/images/delivery_ru-ua.svg'
+import ukrainianFlag from '../assets/images/uk.gif'
+---
+
+<header class="p-2.5">
+  <div
+    class="border border-black rounded-md mb-5 p-1.5 flex justify-between items-center"
+  >
+    <Icon pack="ion" name="menu" class="w-9" />
+    <!--Languages block-->
+    <!--<div class="flex items-center">-->
+    <!--  <div class="flex items-center gap-1">-->
+    <!--    <Image src={ukrainianFlag} alt="Флаг Украины" />-->
+    <!--    <span class="uppercase mr-2">ua</span>-->
+    <!--  </div>-->
+    <!--  <span class="uppercase">ru</span>-->
+    <!--</div>-->
+    <!--Telegram/Viber-->
+    <!--<div class="flex gap-1">-->
+    <!--  <Icon pack="uil" name="telegram" class="w-8 text-sky-500" />-->
+    <!--  <Icon pack="jam" name="viber-circle" class="w-8 text-violet-500" />-->
+    <!--</div>-->
+    <Icon pack="ph" name="shopping-cart-simple" class="w-8" />
+  </div>
+  <Image src={logo} alt="Logotype Solpower" class="mb-5" />
+  <div class="flex items-center justify-between mb-5">
+    <div class="flex flex-col">
+      <div class="flex items-center mb-1">
+        <Image src={vodafone} alt="Логотип водафон" class="mr-1 w-5 h-5" />
+        <span>(095) 913-588-3</span>
+      </div>
+      <div class="flex items-center">
+        <Image src={kyivstar} alt="Логотип киевстар" class="mr-1 w-5 h-5" />
+        <span>(097) 913-588-3</span>
+      </div>
+    </div>
+    <Image src={delivery} alt="Бесплатная доставка по Украине" />
+  </div>
+
+  <ul class="flex flex-col justify-center gap-2 text-center font-semibold">
+    <li class="uppercase bg-orange-500 text-white p-2.5 rounded-md">
+      Солнечные зарядные устройства
+    </li>
+    <li class="uppercase bg-orange-500 text-white p-2.5 rounded-md">
+      Внешние аккумуляторы power bank
+    </li>
+    <li class="uppercase bg-orange-500 text-white p-2.5 rounded-md">
+      Портативные солнечные батареи
+    </li>
+  </ul>
+</header>
