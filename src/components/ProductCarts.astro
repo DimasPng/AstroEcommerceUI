@@ -1,8 +1,9 @@
 ---
-import Product from './Product.astro'
+import Product from './Thumbnail.astro'
 const request = await fetch('http://127.0.0.1:8000/api/products')
 const data = await request.json()
 const products = data.data
+console.log(products)
 ---
 
 <ul class="flex flex-wrap p-1">
