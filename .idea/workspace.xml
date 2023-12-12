@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TopCategory.astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/[category].astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/products/[id].astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/products/test.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductCarts.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductCarts.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Thumbnail.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Thumbnail.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +80,7 @@
       <workItem from="1702053774739" duration="19953000" />
       <workItem from="1702148733549" duration="17000" />
       <workItem from="1702151180864" duration="2632000" />
-      <workItem from="1702284735292" duration="29076000" />
+      <workItem from="1702284735292" duration="29949000" />
     </task>
     <servers />
   </component>
