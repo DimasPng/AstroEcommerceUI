@@ -1,21 +1,23 @@
 ---
-import Product from './Thumbnail.astro'
-const request = await fetch('http://127.0.0.1:8000/api/products')
-const data = await request.json()
-const products = data.data
-console.log(products)
+import BestsellerProduct from './Thumbnail.astro'
+import getData from '../api/api.js'
+
+const [categories, products] = await getData()
+console.log(products[0])
 ---
 
 <ul class="flex flex-wrap p-1">
   {
     products.map((product) => {
-      return (
-        <Product
-          title={product.title}
-          price={product.price}
-          images={product.images}
-        />
-      )
+      if (product.is_published && product.hit) {
+        return (
+          <BestsellerProduct
+            title={product.title}
+            price={product.price}
+            images={product.images}
+          />
+        )
+      }
     })
   }
 </ul>

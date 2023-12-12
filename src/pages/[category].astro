@@ -1,0 +1,20 @@
+---
+import getData from '../api/api.js'
+import Layout from '../layouts/Layout.astro'
+export async function getStaticPaths() {
+  const [categories, products] = await getData()
+  return categories.map((cat) => {
+    return {
+      params: { category: cat.uri_category },
+      props: { cat, products },
+    }
+  })
+}
+
+const { category } = Astro.params
+const { cat, products } = Astro.props
+---
+
+<Layout>
+  <h1 class="text-2xl">Category: {cat.title}</h1>
+</Layout>
