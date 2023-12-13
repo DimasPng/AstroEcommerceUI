@@ -7,22 +7,38 @@ import ProductThumbnail from '../components/general/ProductThumbnails.astro'
 import Breadcrumbs from '../components/general/Breadcrumbs.astro'
 export async function getStaticPaths() {
   const [categories, products] = await getData()
+
+  const productsByCategory = {}
+  products.forEach((product) => {
+    const categoryId = product.category.id
+
+    if (!productsByCategory[categoryId]) {
+      productsByCategory[categoryId] = []
+    }
+
+    productsByCategory[categoryId].push(product)
+  })
+
   return categories.map((cat) => {
+    const categoryId = cat.id
+    const currProducts = productsByCategory[categoryId] || []
     return {
       params: { category: cat.uri_category },
-      props: { cat, products },
+      props: { cat, currProducts },
     }
   })
 }
 
 const { category } = Astro.params
-const { cat, products } = Astro.props
+const { cat, currProducts } = Astro.props
 ---
 
 <Layout>
   <Header />
-  <Breadcrumbs url="" name="На главную" />
-  <h1 class="text-2xl">Category: {cat.title}</h1>
-  <ProductThumbnail products={products} />
+  <section class="p-2.5">
+    <Breadcrumbs url="" name="На главную" />
+    <h1 class="text-xl font-bold leading-tight mb-2">{cat.title}</h1>
+    <ProductThumbnail products={currProducts} />
+  </section>
   <Footer />
 </Layout>

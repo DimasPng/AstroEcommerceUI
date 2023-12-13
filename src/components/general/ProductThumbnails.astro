@@ -6,6 +6,34 @@ interface Props {
   products: object
 }
 const { products } = Astro.props
+
+const sortedProducts = products.slice().sort((a, b) => {
+  // Сначала шли хиты продаж в наличии
+  if (a.hit && b.hit) {
+    // Сравнение по количеству для хитов продаж
+    return b.quantity - a.quantity
+  } else if (a.hit && !b.hit) {
+    // Перемещаем хит продаж вперед, даже если он не в наличии
+    return -1
+  } else if (!a.hit && b.hit) {
+    // Перемещаем хит продаж вперед, даже если он не в наличии
+    return 1
+  }
+
+  // Затем шли все остальные товары в наличии
+  if (a.quantity > 0 && b.quantity > 0) {
+    return b.quantity - a.quantity
+  } else if (a.quantity > 0 && b.quantity <= 0) {
+    // Перемещаем товар в наличии вперед
+    return -1
+  } else if (a.quantity <= 0 && b.quantity > 0) {
+    // Перемещаем товар в наличии вперед
+    return 1
+  }
+
+  // В конце идут все остальные товары
+  return 0
+})
 ---
 
 <ul class="flex flex-wrap p-1">
