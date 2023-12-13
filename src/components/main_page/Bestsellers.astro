@@ -1,0 +1,19 @@
+---
+import getData from '../../api/api'
+import ProductThumbnails from '../general/ProductThumbnails.astro'
+
+const [categories, products] = await getData()
+const productsHit = []
+products.forEach((product) => {
+  if (product.is_published && product.hit) {
+    productsHit.push(product)
+  }
+})
+---
+
+<sections class="p-2.5">
+  <h2 class="uppercase text-center font-semibold text-xl mb-2.5">
+    Хиты продаж
+  </h2>
+  <ProductThumbnails products={productsHit} />
+</sections>
