@@ -1,0 +1,35 @@
+---
+import getData from '../../api/api.js'
+import Layout from '../../layouts/Layout.astro'
+import Footer from '../../components/Footer.astro'
+import Product from '../../components/Product.astro'
+import Header from '../../components/Header.astro'
+
+export async function getStaticPaths() {
+  const [all_categories, product] = await getData()
+  return product.map((prod) => {
+    return {
+      params: {
+        categories: prod.category.uri_category,
+        product: prod.uri_product,
+      },
+      props: { prod, all_categories },
+    }
+  })
+}
+
+const { categories, product } = Astro.params
+const { prod, all_categories } = Astro.props
+---
+
+<Layout>
+  <Header />
+  <Product
+    title={prod.title}
+    description={prod.description}
+    price={prod.price}
+    images={prod.images}
+    quantity={prod.quantity}
+  />
+  <Footer />
+</Layout>

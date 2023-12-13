@@ -1,9 +1,9 @@
 ---
-import BestsellerProduct from './Thumbnail.astro'
+import ProductThumbnail from './Thumbnail.astro'
 import getData from '../api/api.js'
 
 const [categories, products] = await getData()
-console.log(products[0])
+// console.log(products[0])
 ---
 
 <ul class="flex flex-wrap p-1">
@@ -11,10 +11,11 @@ console.log(products[0])
     products.map((product) => {
       if (product.is_published && product.hit) {
         return (
-          <BestsellerProduct
+          <ProductThumbnail
             title={product.title}
             price={product.price}
             images={product.images}
+            uri={`${product.category['uri_category']}/${product.uri_product}`}
           />
         )
       }

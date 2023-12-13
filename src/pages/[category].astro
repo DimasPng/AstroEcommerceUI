@@ -1,6 +1,9 @@
 ---
 import getData from '../api/api.js'
 import Layout from '../layouts/Layout.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import ProductThumbnail from '../components/Thumbnail.astro'
 export async function getStaticPaths() {
   const [categories, products] = await getData()
   return categories.map((cat) => {
@@ -13,8 +16,28 @@ export async function getStaticPaths() {
 
 const { category } = Astro.params
 const { cat, products } = Astro.props
+console.log(products[0].category.id)
+console.log(cat.id)
 ---
 
 <Layout>
+  <Header />
   <h1 class="text-2xl">Category: {cat.title}</h1>
+  <ul class="flex flex-wrap p-1">
+    {
+      products.map((product) => {
+        if (product.category.id === cat.id && product.is_published) {
+          return (
+            <ProductThumbnail
+              title={product.title}
+              price={product.price}
+              images={product.images}
+              uri={`${product.category['uri_category']}/${product.uri_product}`}
+            />
+          )
+        }
+      })
+    }
+  </ul>
+  <Footer />
 </Layout>

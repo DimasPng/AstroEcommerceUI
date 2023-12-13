@@ -6,13 +6,14 @@ interface Props {
   title: string
   price: number
   images: object
+  uri: string
 }
 
-const { title, price, images } = Astro.props
+const { title, price, images, uri } = Astro.props
 ---
 
 <li class="w-2/4 p-2.5 border-r border-b">
-  <a>
+  <a href={uri}>
     <Image
       src={images[0]}
       width="100"
@@ -21,7 +22,7 @@ const { title, price, images } = Astro.props
       class="mb-2"
     />
   </a>
-  <a><div class="leading-tight mb-1">{title}</div></a>
+  <a href={uri}><div class="leading-tight mb-1">{title}</div></a>
   <div class="text-2xl font-semibold mb-1.5">
     {price}
     <span class="text-base">₴</span>
