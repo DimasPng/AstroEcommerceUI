@@ -1,0 +1,21 @@
+---
+interface Props {
+  categories: object
+}
+
+const { categories } = Astro.props
+---
+
+<ul class="flex flex-col justify-center gap-2 text-center font-semibold">
+  {
+    categories.map((category) => {
+      if (category.top_category) {
+        return (
+          <li class="uppercase bg-orange-500 text-white p-2.5 rounded-md">
+            <a href={category.uri_category}>{category.title}</a>
+          </li>
+        )
+      }
+    })
+  }
+</ul>

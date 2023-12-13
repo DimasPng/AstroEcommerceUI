@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon'
+
+interface Props {
+  quantity: number
+}
+
+const { quantity } = Astro.props
+---
+
+<div class="border border-1 rounded-xl p-4 bg-gray-50 mb-4">
+  <div class="flex items-start mb-3">
+    <Icon pack="iconoir" name="delivery-truck" class="w-10 mr-3" />
+    <div>
+      <div class="leading-tight">
+        Самовывоз из отделений Новой Почты или Укр Почты
+      </div>
+      <div class=`font-bold ${quantity <= 0 && 'hidden'} deliveryStatus`>
+        Отправим
+      </div>
+    </div>
+  </div>
+
+  <div class="flex items-start">
+    <Icon pack="la" name="biking" class="w-10 mr-2" />
+    <div>
+      <div class="leading-tight">Доставка до дверей, курьером Новой Почты</div>
+      <div class=`font-bold ${quantity <= 0 && 'hidden'} deliveryStatus`>
+        Отправим
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const deliveryStatusElements = document.querySelectorAll('.deliveryStatus')
+
+  const now = new Date()
+  const currentHour = now.getHours()
+  const cutoffHour = 16
+
+  deliveryStatusElements.forEach((statusElement) => {
+    if (currentHour < cutoffHour) {
+      statusElement.textContent = 'Отправим сегодня'
+    } else {
+      statusElement.textContent = 'Отправим завтра'
+    }
+  })
+</script>

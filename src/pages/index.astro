@@ -1,12 +1,18 @@
 ---
+import getData from '../api/api.js'
 import Layout from '../layouts/Layout.astro'
 import Header from '../components/Header.astro'
 import Bestsellers from '../components/Bestsellers.astro'
 import Footer from '../components/Footer.astro'
+import TopCategories from '../components/TopCategories.astro'
+
+const [categories, ,] = await getData()
 ---
 
 <Layout>
-  <Header />
+  <Header>
+    {(<TopCategories categories={categories} />)}
+  </Header>
   <Bestsellers />
   <Footer />
 </Layout>

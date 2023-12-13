@@ -5,18 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ProductSlider.astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/[categories]/[product].astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Breadcrumbs.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TopCategories.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/CommentForm.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/Delivery.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/Guarantee.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product/Rating.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Bestsellers.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Bestsellers.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Product.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Product.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductCarts.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductCarts.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Thumbnail.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Thumbnail.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProductSlider.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product/Slider.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopCategory.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[categories]/[product].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category]/[product].astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/catalogue/product.astro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/products/[id].astro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/products/test.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +77,8 @@
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images\product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Кодинг\web html\internetshopFront\src\components" />
+      <recent name="F:\Кодинг\web html\internetshopFront\src\components\product" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images" />
     </key>
   </component>
@@ -112,7 +116,8 @@
       <workItem from="1702284735292" duration="29076000" />
       <workItem from="1702456987993" duration="13000" />
       <workItem from="1702457020861" duration="8569000" />
-      <workItem from="1702468513227" duration="1836000" />
+      <workItem from="1702468513227" duration="2992000" />
+      <workItem from="1702471538236" duration="9720000" />
     </task>
     <servers />
   </component>

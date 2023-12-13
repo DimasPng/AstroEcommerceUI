@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   return product.map((prod) => {
     return {
       params: {
-        categories: prod.category.uri_category,
+        category: prod.category.uri_category,
         product: prod.uri_product,
       },
       props: { prod, all_categories },
@@ -18,18 +18,12 @@ export async function getStaticPaths() {
   })
 }
 
-const { categories, product } = Astro.params
+const { category, product } = Astro.params
 const { prod, all_categories } = Astro.props
 ---
 
 <Layout>
   <Header />
-  <Product
-    title={prod.title}
-    description={prod.description}
-    price={prod.price}
-    images={prod.images}
-    quantity={prod.quantity}
-  />
+  <Product product={prod} />
   <Footer />
 </Layout>

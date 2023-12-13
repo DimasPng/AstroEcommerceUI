@@ -1,6 +1,4 @@
 ---
-import getData from '../api/api.js'
-
 import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon'
 
@@ -9,9 +7,6 @@ import vodafone from '../assets/images/mts.png'
 import kyivstar from '../assets/images/ks.png'
 import delivery from '../assets/images/delivery_ru-ua.svg'
 import ukrainianFlag from '../assets/images/uk.gif'
-import TopCategory from './TopCategory.astro'
-
-const [categories, ,] = await getData()
 ---
 
 <header class="p-2.5">
@@ -213,7 +208,7 @@ const [categories, ,] = await getData()
     <Icon pack="ph" name="shopping-cart-simple" class="w-8" />
   </div>
   <Image src={logo} alt="Logotype Solpower" class="mb-5" />
-  <div class="flex items-center justify-between mb-5">
+  <div class="flex items-center justify-between mb-1">
     <div class="flex flex-col">
       <div class="flex items-center mb-1">
         <Image src={vodafone} alt="Логотип водафон" class="mr-1 w-5 h-5" />
@@ -226,18 +221,7 @@ const [categories, ,] = await getData()
     </div>
     <Image src={delivery} alt="Бесплатная доставка по Украине" />
   </div>
-
-  <ul class="flex flex-col justify-center gap-2 text-center font-semibold">
-    {
-      categories.map((category) => {
-        if (category.top_category) {
-          return (
-            <TopCategory name={category.title} uri={category.uri_category} />
-          )
-        }
-      })
-    }
-  </ul>
+  <slot />
 </header>
 
 <script>
