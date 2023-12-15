@@ -2,7 +2,7 @@
 import getData from '../api/api.js'
 import Layout from '../layouts/Layout.astro'
 import Footer from '../components/general/Footer.astro'
-import Header from '../components/general/Header.astro'
+import Header from '../components/general/header/Header.astro'
 import ProductThumbnail from '../components/general/ProductThumbnails.astro'
 import Breadcrumbs from '../components/general/Breadcrumbs.astro'
 export async function getStaticPaths() {
@@ -35,10 +35,12 @@ const { cat, currProducts } = Astro.props
 
 <Layout>
   <Header />
-  <section class="p-2.5">
-    <Breadcrumbs url="" name="На главную" />
-    <h1 class="text-xl font-bold leading-tight mb-2">{cat.title}</h1>
-    <ProductThumbnail products={currProducts} />
-  </section>
+  <main class="flex-grow">
+    <section class="p-2.5">
+      <Breadcrumbs url="" name="На главную" />
+      <h1 class="text-xl font-bold leading-tight mb-2">{cat.title}</h1>
+      <ProductThumbnail products={currProducts} />
+    </section>
+  </main>
   <Footer />
 </Layout>

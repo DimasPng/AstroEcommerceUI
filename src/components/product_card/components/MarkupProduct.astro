@@ -1,0 +1,41 @@
+---
+interface Props {
+  product: object
+}
+
+const {
+  title,
+  price,
+  images: image,
+  quantity,
+  uri_product,
+  is_published,
+} = Astro.props.product
+const { uri_category } = Astro.props.product.category
+const productUrl = new URL(`/${uri_category}/${uri_product}`, Astro.url)
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify({
+    '@context': 'http://schema.org',
+    '@type': 'Product',
+    url: `${productUrl}`,
+    name: `${title}`,
+    image: { image },
+    description: `${title} купить в интернет-магазине solpower.com.ua. Гарантия, низкие цены с доставкой в любой город Украины`,
+    itemCondition: 'https://schema.org/NewCondition',
+    offers: {
+      '@type': 'Offer',
+      availability: `${
+        quantity > 0 && is_published
+          ? 'https://schema.org/InStock'
+          : 'https://schema.org/OutOfStock'
+      }`,
+      url: `${productUrl}`,
+      price: `${price}`,
+      priceCurrency: 'UAH',
+      priceValidUntil: '2024-12-14T15:18:03',
+    },
+  })}
+/>

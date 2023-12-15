@@ -1,0 +1,29 @@
+---
+import MarkupProduct from '../components/product_card/components/MarkupProduct.astro'
+
+interface Props {
+  product: object
+}
+const { product } = Astro.props
+const { title } = Astro.props.product
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>
+      {title} купить в Киеве, Харькове, Днепропетровске, Одессе, Запорожье,
+      Львове. {title} цена, описание, фото.
+    </title>
+    <meta
+      name="description"
+      content=`${title} купить в интернет-магазине solpower.com.ua. Гарантия, низкие цены с доставкой в любой город Украины`
+    />
+    <MarkupProduct product={product} />
+    <slot />
+  </head>
+</html>

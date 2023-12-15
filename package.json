@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.0.2",
     "@preline/carousel": "^2.0.1",
+    "@preline/overlay": "^2.0.1",
     "astro": "^3.6.0",
     "astro-icon": "^0.8.1",
     "preline": "^2.0.2",
