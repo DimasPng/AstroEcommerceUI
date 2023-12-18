@@ -8,12 +8,14 @@ import Guarantee from './components/Guarantee.astro'
 import CommentForm from './components/CommentForm.astro'
 import Rating from './components/Rating.astro'
 import Breadcrumbs from '../general/Breadcrumbs.astro'
+import Characteristics from './components/Characteristics.astro'
 
 interface Props {
   product: object
 }
 const { category } = Astro.params
-const { title, description, images, price, quantity } = Astro.props.product
+const { title, description, images, price, quantity, characteristics } =
+  Astro.props.product
 const { title: category_name } = Astro.props.product.category
 ---
 
@@ -52,23 +54,6 @@ const { title: category_name } = Astro.props.product.category
     <h2 class="text-2xl font-bold mb-5">Описание</h2>
     <Fragment set:html={description} />
   </section>
-  <section>
-    <h2 class="text-2xl font-bold mb-5">Характеристики</h2>
-    <div class="flex items-start">
-      <div class="mr-5">Характеристика 1:</div>
-      <div>
-        <div class="value">Значение 1</div>
-        <div class="value">Значение 2</div>
-        <div class="value">Значение 3</div>
-        <div class="value">Значение 4</div>
-      </div>
-    </div>
-    <div class="flex items-start">
-      <div class="mr-5">Характеристика 1:</div>
-      <div>
-        <div class="value">Значение 1</div>
-      </div>
-    </div>
-  </section>
+  <Characteristics characteristics={characteristics} />
   <CommentForm />
 </section>
