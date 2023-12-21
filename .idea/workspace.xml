@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/RatingReview.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/astro.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/astro.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/CommentForm.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/CommentForm.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Guarantee.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Guarantee.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Layout.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Layout.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +121,11 @@
       <workItem from="1702528703602" duration="11000" />
       <workItem from="1702528797152" duration="108000" />
       <workItem from="1702529028187" duration="29666000" />
-      <workItem from="1702714035765" duration="4418000" />
+      <workItem from="1702714035765" duration="44926000" />
+      <workItem from="1703096327378" duration="2848000" />
+      <workItem from="1703153433505" duration="23000" />
+      <workItem from="1703153499132" duration="12326000" />
+      <workItem from="1703176168795" duration="1877000" />
     </task>
     <servers />
   </component>

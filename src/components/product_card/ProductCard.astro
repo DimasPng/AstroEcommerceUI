@@ -14,7 +14,7 @@ interface Props {
   product: object
 }
 const { category } = Astro.params
-const { title, description, images, price, quantity, characteristics } =
+const { id, title, description, images, price, quantity, characteristics } =
   Astro.props.product
 const { title: category_name } = Astro.props.product.category
 ---
@@ -55,5 +55,5 @@ const { title: category_name } = Astro.props.product.category
     <Fragment set:html={description} />
   </section>
   <Characteristics characteristics={characteristics} />
-  <CommentForm />
+  <CommentForm productId={id} />
 </section>
