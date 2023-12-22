@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/RatingReview.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Testimonials.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/CircularProgress.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/TestimonialCard.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/Tooltip.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/astro.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/astro.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/CommentForm.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/CommentForm.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Guarantee.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Guarantee.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Layout.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Layout.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/CommentForm.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/CommentForm.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/RatingReview.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/RatingReview.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +72,11 @@
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images\product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components" />
+      <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\general\header" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\general" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\main_page" />
-      <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card" />
-      <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components" />
     </key>
   </component>
   <component name="RunManager">
@@ -125,7 +124,7 @@
       <workItem from="1703096327378" duration="2848000" />
       <workItem from="1703153433505" duration="23000" />
       <workItem from="1703153499132" duration="12326000" />
-      <workItem from="1703176168795" duration="1877000" />
+      <workItem from="1703176168795" duration="30344000" />
     </task>
     <servers />
   </component>

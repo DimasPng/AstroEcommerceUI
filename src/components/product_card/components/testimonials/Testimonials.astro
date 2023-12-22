@@ -1,0 +1,78 @@
+---
+import CircularProgress from './components/CircularProgress.astro'
+import Tooltip from './components/Tooltip.astro'
+import TestimonialCard from './components/TestimonialCard.astro'
+---
+
+<section
+  class="container bg-white w-full border-1 border-gray-500 custom-shadow overflow-hidden dark:border-gray-700 pt-5"
+>
+  <div class="flex justify-start items-center mb-4">
+    <h2 class="text-2xl font-bold">Отзывы</h2><span class="text-2xl"
+      >: <span class="text-xl ml-1 font-bold text-orange-500">202</span></span
+    >
+  </div>
+  <div
+    class="p-2 pt-5 pb-2 border rounded-lg shadow overflow-hidden dark:border-gray-700 dark:shadow-gray-900"
+  >
+    <div class="flex justify-between mb-5">
+      <div>
+        <p class="font-semibold mb-1.5">Оценка пользователей</p>
+        <div class="flex">
+          <span
+            class="uppercase text-5xl font-bold text-orange-500 opacity-80 mr-2"
+            >4.8</span
+          >
+          <div class="flex flex-col">
+            <svg width="100" height="32" viewBox="0 0 160 32">
+              <defs>
+                <mask id="perc">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white"
+                  ></rect>
+                  <rect x="80%" y="0" width="100%" height="100%" fill="grey"
+                  ></rect>
+                </mask>
+
+                <symbol viewBox="0 0 32 32" id="star">
+                  <path
+                    d="M31.547 12a.848.848 0 00-.677-.577l-9.427-1.376-4.224-8.532a.847.847 0 00-1.516 0l-4.218 8.534-9.427 1.355a.847.847 0 00-.467 1.467l6.823 6.664-1.612 9.375a.847.847 0 001.23.893l8.428-4.434 8.432 4.432a.847.847 0 001.229-.894l-1.615-9.373 6.822-6.665a.845.845 0 00.214-.869z"
+                  ></path>
+                </symbol>
+                <symbol viewBox="0 0 160 32" id="stars">
+                  <use xlink:href="#star" x="-64" y="0"></use>
+                  <use xlink:href="#star" x="-32" y="0"></use>
+                  <use xlink:href="#star" x="0" y="0"></use>
+                  <use xlink:href="#star" x="32" y="0"></use>
+                  <use xlink:href="#star" x="64" y="0"></use>
+                </symbol>
+              </defs>
+
+              <use xlink:href="#stars" fill="orange" mask="url(#perc)"></use>
+            </svg>
+            <span class="leading-tight text-gray-600">Отзывы (202)</span>
+          </div>
+        </div>
+      </div>
+      <CircularProgress />
+    </div>
+    <div class="border-t border-gray-100 pt-5">
+      <div class="flex items-center mb-5">
+        <span class="bg-green-600 font-semibold text-white mr-1.5 rounded">
+          &nbsp;+100 ₴&nbsp;</span
+        > за полезный отзыв
+        <Tooltip />
+      </div>
+
+      <button
+        type="button"
+        data-hs-overlay="#hs-full-screen-modal-below-sm"
+        class="w-full mb-5 py-2 text-lg px-4 inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-yellow-500 text-white hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+      >
+        Написать отзыв
+      </button>
+      <TestimonialCard />
+      <TestimonialCard />
+      <TestimonialCard />
+    </div>
+  </div>
+</section>
