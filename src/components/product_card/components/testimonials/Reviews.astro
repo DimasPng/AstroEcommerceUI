@@ -1,27 +1,49 @@
 ---
 import CircularProgress from './components/CircularProgress.astro'
 import Tooltip from './components/Tooltip.astro'
-import TestimonialCard from './components/TestimonialCard.astro'
+import ReviewCard from './components/card_review/ReviewCard.astro'
+
+interface Props {
+  reviews: object
+}
+
+const { reviews } = Astro.props
+
+const sumRating = reviews.reduce((acc, review) => {
+  return acc + review.rating
+}, 0)
+
+const averageRating = Math.ceil(sumRating / reviews.length).toFixed(1)
+const averagePercentRating = averageRating * 20
 ---
 
 <section
   class="container bg-white w-full border-1 border-gray-500 custom-shadow overflow-hidden dark:border-gray-700 pt-5"
 >
   <div class="flex justify-start items-center mb-4">
-    <h2 class="text-2xl font-bold">Отзывы</h2><span class="text-2xl"
-      >: <span class="text-xl ml-1 font-bold text-orange-500">202</span></span
-    >
+    <h2 class="text-2xl font-bold">Отзывы</h2>{
+      reviews.length > 0 && (
+        <span class="text-2xl">
+          :{' '}
+          <span class="text-xl ml-1 font-bold text-orange-500">
+            {reviews.length}
+          </span>
+        </span>
+      )
+    }
   </div>
   <div
     class="p-2 pt-5 pb-2 border rounded-lg shadow overflow-hidden dark:border-gray-700 dark:shadow-gray-900"
   >
-    <div class="flex justify-between mb-5">
+    <div
+      class=`flex justify-between mb-5 ${reviews.length > 0 ? "" : "hidden"}`
+    >
       <div>
         <p class="font-semibold mb-1.5">Оценка пользователей</p>
         <div class="flex">
           <span
             class="uppercase text-5xl font-bold text-orange-500 opacity-80 mr-2"
-            >4.8</span
+            >{averageRating}</span
           >
           <div class="flex flex-col">
             <svg width="100" height="32" viewBox="0 0 160 32">
@@ -29,8 +51,12 @@ import TestimonialCard from './components/TestimonialCard.astro'
                 <mask id="perc">
                   <rect x="0" y="0" width="100%" height="100%" fill="white"
                   ></rect>
-                  <rect x="80%" y="0" width="100%" height="100%" fill="grey"
-                  ></rect>
+                  <rect
+                    x=`${averagePercentRating}%`
+                    y="0"
+                    width="100%"
+                    height="100%"
+                    fill="grey"></rect>
                 </mask>
 
                 <symbol viewBox="0 0 32 32" id="star">
@@ -49,11 +75,13 @@ import TestimonialCard from './components/TestimonialCard.astro'
 
               <use xlink:href="#stars" fill="orange" mask="url(#perc)"></use>
             </svg>
-            <span class="leading-tight text-gray-600">Отзывы (202)</span>
+            <span class="leading-tight text-gray-600"
+              >Отзывы ({reviews.length})</span
+            >
           </div>
         </div>
       </div>
-      <CircularProgress />
+      <CircularProgress percentRating={averagePercentRating} />
     </div>
     <div class="border-t border-gray-100 pt-5">
       <div class="flex items-center mb-5">
@@ -70,9 +98,7 @@ import TestimonialCard from './components/TestimonialCard.astro'
       >
         Написать отзыв
       </button>
-      <TestimonialCard />
-      <TestimonialCard />
-      <TestimonialCard />
+      {reviews.map((review) => <ReviewCard review={review} />)}
     </div>
   </div>
 </section>

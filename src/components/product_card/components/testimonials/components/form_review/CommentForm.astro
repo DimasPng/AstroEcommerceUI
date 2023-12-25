@@ -39,8 +39,10 @@ const { productId } = Astro.props
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
           >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
         </button>
       </div>
       <div class="max-w-[85rem] py-4 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -51,7 +53,7 @@ const { productId } = Astro.props
             <div
               class="mt-5 sm:p-4 relative z-10 bg-white sm:border sm:rounded-xl sm:mt-10 md:p-10 dark:bg-gray-800 dark:border-gray-700"
             >
-              <div class="mb-4 sm:mb-8">
+              <div class="mb-4 sm:mb-8 min-w-[19rem]">
                 <label
                   for="hs-feedback-post-comment-name-1"
                   class="block mb-2 text-sm font-medium dark:text-white"
@@ -117,8 +119,9 @@ const { productId } = Astro.props
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      ><path d="m6 9 6 6 6-6"></path></svg
                     >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
                     <svg
                       class="hs-accordion-active:block hidden w-4 h-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -130,8 +133,9 @@ const { productId } = Astro.props
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      ><path d="m18 15-6-6-6 6"></path></svg
                     >
+                      <path d="m18 15-6-6-6 6"></path>
+                    </svg>
                   </button>
                   <div
                     id="hs-basic-with-title-and-arrow-stretched-collapse-three"
@@ -187,17 +191,21 @@ const { productId } = Astro.props
               <input type="hidden" name="product_id" value={productId} />
               <div
                 id="successMessage"
-                class="hidden text-green-600 font-semibold mt-4"
+                class="text-green-600 hidden font-semibold mt-4"
               >
                 Спасибо! Ваш отзыв отправлен.
                 <div class="text-black">
-                  Окно можно <span
+                  Окно можно <a
+                    id="closeBtn2"
                     class="cursor-pointer hover:underline text-blue-700"
-                    data-hs-overlay="#hs-full-screen-modal-below-sm"
-                    >закрыть.</span
+                    data-hs-overlay="#hs-full-screen-modal-below-sm">закрыть.</a
                   >
                 </div>
+              </div><div class="font-semibold mt-4 hidden" id="errorMessage">
+                <span class="text-red-600">Произошла ошибка.</span><br />
+                 Попробуйте отправить отзыв повторно.
               </div>
+              <div class="w-90%"></div>
               <div class="mt-6 mb-6 grid" id="submitButtonContainer">
                 <button
                   type="submit"
@@ -228,12 +236,21 @@ const { productId } = Astro.props
   </div>
 </div>
 
-<script>
+<script type="module">
+  import {
+    setIsClickedStar1,
+    setIsClickedStar2,
+    setIsClickedStar3,
+    setIsClickedStar4,
+    setIsClickedStar5,
+  } from '../../../../../../js/constants.js'
   const form = document.getElementById('commentForm')
   const submitButton = document.getElementById('submitButton')
   const submitButtonContainer = document.getElementById('submitButtonContainer')
   const successMessage = document.getElementById('successMessage')
-  const closeBtn = document.getElementById('closeBtn')
+  const errorMessage = document.getElementById('errorMessage')
+  const closeBtn1 = document.getElementById('closeBtn')
+  const closeBtn2 = document.getElementById('closeBtn2')
   const spinner = document.getElementById('spinner')
 
   async function sendRequest(event) {
@@ -263,29 +280,65 @@ const { productId } = Astro.props
         throw new Error('Ошибка при отправке данных')
       }
 
+      const resp = await response.json()
+      console.log(resp)
+
       if (response.ok) {
         spinner.classList.add('hidden')
         submitButton.classList.remove('hidden')
         successMessage.classList.remove('hidden')
         form.reset()
-        document.getElementById('star-1').classList.add('text-gray-300')
-        document.getElementById('star-1').classList.remove('text-yellow-400')
-        document.getElementById('star-2').classList.add('text-gray-300')
-        document.getElementById('star-2').classList.remove('text-yellow-400')
-        document.getElementById('star-3').classList.add('text-gray-300')
-        document.getElementById('star-3').classList.remove('text-yellow-400')
-        document.getElementById('star-4').classList.add('text-gray-300')
-        document.getElementById('star-4').classList.remove('text-yellow-400')
-        document.getElementById('star-5').classList.add('text-gray-300')
-        document.getElementById('star-5').classList.remove('text-yellow-400')
+        document.getElementById('inputRating').value = ''
+        setStarColor('star-1', 'text-gray-300')
+        setStarColor('star-2', 'text-gray-300')
+        setStarColor('star-3', 'text-gray-300')
+        setStarColor('star-4', 'text-gray-300')
+        setStarColor('star-5', 'text-gray-300')
       }
     } catch (error) {
-      console.error(error)
+      spinner.classList.add('hidden')
+      submitButton.classList.remove('hidden')
+      //errorMessage.classList.remove('hidden')
     }
   }
 
-  form.addEventListener('submit', sendRequest)
+  function setStarColor(starId, colorClass) {
+    const star = document.getElementById(starId)
+    star.classList.add(colorClass)
+    star.classList.remove('text-yellow-400')
+  }
+
   closeBtn.addEventListener('click', () => {
+    if (!successMessage.classList.contains('hidden')) {
+      successMessage.classList.add('hidden')
+    }
+    if (!errorMessage.classList.contains('hidden')) {
+      errorMessage.classList.add('hidden')
+    }
+    form.reset()
+    document.getElementById('inputRating').value = ''
+    setStarColor('star-1', 'text-gray-300')
+    setStarColor('star-2', 'text-gray-300')
+    setStarColor('star-3', 'text-gray-300')
+    setStarColor('star-4', 'text-gray-300')
+    setStarColor('star-5', 'text-gray-300')
+  })
+
+  form.addEventListener('submit', sendRequest)
+  closeBtn1.addEventListener('click', () => {
     successMessage.classList.add('hidden')
+    setIsClickedStar1(false)
+    setIsClickedStar2(false)
+    setIsClickedStar3(false)
+    setIsClickedStar4(false)
+    setIsClickedStar5(false)
+  })
+  closeBtn2.addEventListener('click', () => {
+    successMessage.classList.add('hidden')
+    setIsClickedStar1(false)
+    setIsClickedStar2(false)
+    setIsClickedStar3(false)
+    setIsClickedStar4(false)
+    setIsClickedStar5(false)
   })
 </script>

@@ -5,18 +5,26 @@ import html from 'astro/dist/vite-plugin-html'
 import ProductSlider from './components/Slider.astro'
 import Delivery from './components/Delivery.astro'
 import Guarantee from './components/Guarantee.astro'
-import CommentForm from './components/testimonials/components/CommentForm.astro'
+import CommentForm from './components/testimonials/components/form_review/CommentForm.astro'
 import Rating from './components/Rating.astro'
 import Breadcrumbs from '../general/Breadcrumbs.astro'
 import Characteristics from './components/Characteristics.astro'
-import Testimonials from './components/testimonials/Testimonials.astro'
+import Testimonials from './components/testimonials/Reviews.astro'
 
 interface Props {
   product: object
 }
 const { category } = Astro.params
-const { id, title, description, images, price, quantity, characteristics } =
-  Astro.props.product
+const {
+  id,
+  title,
+  description,
+  images,
+  price,
+  quantity,
+  characteristics,
+  reviews,
+} = Astro.props.product
 const { title: category_name } = Astro.props.product.category
 ---
 
@@ -56,6 +64,6 @@ const { title: category_name } = Astro.props.product.category
     <Fragment set:html={description} />
   </section>
   <Characteristics characteristics={characteristics} />
-  <Testimonials />
+  <Testimonials reviews={reviews} />
   <CommentForm productId={id} />
 </section>

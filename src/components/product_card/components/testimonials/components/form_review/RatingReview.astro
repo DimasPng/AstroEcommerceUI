@@ -2,7 +2,7 @@
   <div class="block mb-4 text-sm font-medium dark:text-white">
     Оцените товар
   </div>
-  <div id="stars" class="flex items-center justify-between">
+  <div id="ratingStars" class="flex items-center justify-between">
     <div class="flex flex-col justify-center items-center">
       <svg
         id="star-1"
@@ -84,29 +84,29 @@
       <span class="text-xs text-gray-600">Отлично</span>
     </div>
   </div>
+  <input type="hidden" name="rating" id="inputRating" value="0" />
 </div>
 
-<script>
+<script type="module">
+  import {
+    getIsClickedStar1,
+    getIsClickedStar2,
+    getIsClickedStar3,
+    getIsClickedStar4,
+    getIsClickedStar5,
+    setIsClickedStar1,
+    setIsClickedStar2,
+    setIsClickedStar3,
+    setIsClickedStar4,
+    setIsClickedStar5,
+  } from '../../../../../../js/constants.js'
   const star1 = document.getElementById('star-1')
   const star2 = document.getElementById('star-2')
   const star3 = document.getElementById('star-3')
   const star4 = document.getElementById('star-4')
   const star5 = document.getElementById('star-5')
 
-  const divForRating = document.getElementById('stars')
-  const divForInput = document.createElement('div')
-  divForInput.id = 'divForInput'
-  const inputRating = document.createElement('input')
-  inputRating.type = 'hidden'
-  inputRating.name = 'rating'
-  inputRating.id = 'inputRating'
-  divForInput.append(inputRating)
-
-  let isClickedStar1 = false
-  let isClickedStar2 = false
-  let isClickedStar3 = false
-  let isClickedStar4 = false
-  let isClickedStar5 = false
+  const inputRating = document.getElementById('inputRating')
 
   star5.addEventListener('mouseover', function () {
     if (!star5.classList.contains('text-yellow-400')) {
@@ -152,7 +152,7 @@
       star1.classList.remove('text-yellow-400')
       star1.classList.add('text-gray-300')
     }
-    if (isClickedStar5) {
+    if (getIsClickedStar5()) {
       if (!star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-gray-300')
         star5.classList.add('text-yellow-400')
@@ -174,7 +174,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar4) {
+    if (getIsClickedStar4()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -196,7 +196,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar3) {
+    if (getIsClickedStar3()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -218,7 +218,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar2) {
+    if (getIsClickedStar2()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -240,7 +240,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar1) {
+    if (getIsClickedStar1()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -265,18 +265,14 @@
   })
 
   star5.addEventListener('click', function () {
-    const div = document.getElementById('divForInput')
-    if (!div) {
-      divForRating.after(divForInput)
-    }
-
-    isClickedStar5 = true
+    setIsClickedStar5(true)
     inputRating.value = '5'
-    if (isClickedStar5) {
-      isClickedStar4 = false
-      isClickedStar3 = false
-      isClickedStar2 = false
-      isClickedStar1 = false
+    if (getIsClickedStar5()) {
+      setIsClickedStar4(false)
+      setIsClickedStar3(false)
+      setIsClickedStar2(false)
+      setIsClickedStar1(false)
+
       if (!star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-gray-300')
         star5.classList.add('text-yellow-400')
@@ -324,7 +320,7 @@
   })
 
   star4.addEventListener('mouseout', function () {
-    if (!isClickedStar4) {
+    if (!getIsClickedStar4()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -346,7 +342,7 @@
         star1.classList.add('text-gray-300')
       }
     }
-    if (isClickedStar5) {
+    if (getIsClickedStar5()) {
       if (!star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-gray-300')
         star5.classList.add('text-yellow-400')
@@ -368,7 +364,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar3) {
+    if (getIsClickedStar3()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -390,7 +386,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar2) {
+    if (getIsClickedStar2()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -412,7 +408,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar1) {
+    if (getIsClickedStar1()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -437,15 +433,11 @@
   })
 
   star4.addEventListener('click', function () {
-    const div = document.getElementById('divForInput')
-    if (!div) {
-      divForRating.after(divForInput)
-    }
-    isClickedStar4 = true
-    isClickedStar5 = false
-    isClickedStar3 = false
-    isClickedStar2 = false
-    isClickedStar1 = false
+    setIsClickedStar4(true)
+    setIsClickedStar5(false)
+    setIsClickedStar3(false)
+    setIsClickedStar2(false)
+    setIsClickedStar1(false)
     inputRating.value = '4'
     if (star5.classList.contains('text-yellow-400')) {
       star5.classList.remove('text-yellow-400')
@@ -493,7 +485,7 @@
   })
 
   star3.addEventListener('mouseout', function () {
-    if (!isClickedStar3) {
+    if (!getIsClickedStar3()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -515,7 +507,7 @@
         star1.classList.add('text-gray-300')
       }
     }
-    if (isClickedStar5) {
+    if (getIsClickedStar5()) {
       if (!star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-gray-300')
         star5.classList.add('text-yellow-400')
@@ -537,7 +529,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar4) {
+    if (getIsClickedStar4()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -559,7 +551,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar2) {
+    if (getIsClickedStar2()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -581,7 +573,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar1) {
+    if (getIsClickedStar1()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -606,15 +598,11 @@
   })
 
   star3.addEventListener('click', function () {
-    const div = document.getElementById('divForInput')
-    if (!div) {
-      divForRating.after(divForInput)
-    }
-    isClickedStar3 = true
-    isClickedStar5 = false
-    isClickedStar4 = false
-    isClickedStar2 = false
-    isClickedStar1 = false
+    setIsClickedStar3(true)
+    setIsClickedStar5(false)
+    setIsClickedStar4(false)
+    setIsClickedStar2(false)
+    setIsClickedStar1(false)
     inputRating.value = '3'
 
     if (star5.classList.contains('text-yellow-400')) {
@@ -665,7 +653,7 @@
   })
 
   star2.addEventListener('mouseout', function () {
-    if (!isClickedStar2) {
+    if (!getIsClickedStar2()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -687,7 +675,7 @@
         star1.classList.add('text-gray-300')
       }
     }
-    if (isClickedStar5) {
+    if (getIsClickedStar5()) {
       if (!star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-gray-300')
         star5.classList.add('text-yellow-400')
@@ -709,7 +697,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar4) {
+    if (getIsClickedStar4()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -731,7 +719,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar3) {
+    if (getIsClickedStar3()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -753,7 +741,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar1) {
+    if (getIsClickedStar1()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -778,15 +766,11 @@
   })
 
   star2.addEventListener('click', function () {
-    const div = document.getElementById('divForInput')
-    if (!div) {
-      divForRating.after(divForInput)
-    }
-    isClickedStar2 = true
-    isClickedStar3 = false
-    isClickedStar5 = false
-    isClickedStar4 = false
-    isClickedStar1 = false
+    setIsClickedStar2(true)
+    setIsClickedStar3(false)
+    setIsClickedStar5(false)
+    setIsClickedStar4(false)
+    setIsClickedStar1(false)
     inputRating.value = '2'
 
     if (star5.classList.contains('text-yellow-400')) {
@@ -837,7 +821,7 @@
   })
 
   star1.addEventListener('mouseout', function () {
-    if (!isClickedStar1) {
+    if (!getIsClickedStar1()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -859,7 +843,7 @@
         star1.classList.add('text-gray-300')
       }
     }
-    if (isClickedStar5) {
+    if (getIsClickedStar5()) {
       if (!star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-gray-300')
         star5.classList.add('text-yellow-400')
@@ -881,7 +865,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar4) {
+    if (getIsClickedStar4()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -903,7 +887,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar3) {
+    if (getIsClickedStar3()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -925,7 +909,7 @@
         star1.classList.add('text-yellow-400')
       }
     }
-    if (isClickedStar2) {
+    if (getIsClickedStar2()) {
       if (star5.classList.contains('text-yellow-400')) {
         star5.classList.remove('text-yellow-400')
         star5.classList.add('text-gray-300')
@@ -950,15 +934,11 @@
   })
 
   star1.addEventListener('click', function () {
-    const div = document.getElementById('divForInput')
-    if (!div) {
-      divForRating.after(divForInput)
-    }
-    isClickedStar1 = true
-    isClickedStar2 = false
-    isClickedStar3 = false
-    isClickedStar5 = false
-    isClickedStar4 = false
+    setIsClickedStar1(true)
+    setIsClickedStar2(false)
+    setIsClickedStar3(false)
+    setIsClickedStar5(false)
+    setIsClickedStar4(false)
     inputRating.value = '1'
 
     if (star5.classList.contains('text-yellow-400')) {
