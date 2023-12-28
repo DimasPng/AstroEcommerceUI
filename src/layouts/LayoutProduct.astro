@@ -24,6 +24,8 @@ const { title } = Astro.props.product
       content=`${title} купить в интернет-магазине solpower.com.ua. Гарантия, низкие цены с доставкой в любой город Украины`
     />
     <MarkupProduct product={product} />
-    <slot />
   </head>
+  <body class="flex flex-col min-h-screen bg-white lg:bg-gray-50">
+    <slot />
+  </body>
 </html>

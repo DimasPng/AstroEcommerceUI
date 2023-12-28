@@ -10,10 +10,9 @@ const [categories, ,] = await getData()
 ---
 
 <Layout>
-  <Header>
-    {(<Category categories={categories} />)}
-    <!--{(<TopCategories categories={categories} />)}-->
-  </Header>
+  <Header />
+  <!--{(<TopCategories categories={categories} />)}-->
+  {(<Category categories={categories} />)}
   <main class="flex-grow">
     <Bestsellers />
   </main>

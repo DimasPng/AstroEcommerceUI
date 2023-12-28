@@ -13,17 +13,18 @@ const sumRating = reviews.reduce((acc, review) => {
   return acc + review.rating
 }, 0)
 
-const averageRating = Math.ceil(sumRating / reviews.length).toFixed(1)
+const averageRating = (sumRating / reviews.length).toFixed(1)
 const averagePercentRating = averageRating * 20
 ---
 
 <section
-  class="container bg-white w-full border-1 border-gray-500 custom-shadow overflow-hidden dark:border-gray-700 pt-5"
+  id="reviews"
+  class="w-full custom-shadow overflow-hidden bg-white lg:px-8 lg:pb-6 lg:rounded-xl pt-5 mx-auto container"
 >
   <div class="flex justify-start items-center mb-4">
-    <h2 class="text-2xl font-bold">Отзывы</h2>{
+    <h2 class="text-2xl xl:text-3xl font-bold">Отзывы</h2>{
       reviews.length > 0 && (
-        <span class="text-2xl">
+        <span class="text-2xl xl:text-3xl">
           :{' '}
           <span class="text-xl ml-1 font-bold text-orange-500">
             {reviews.length}
@@ -33,7 +34,7 @@ const averagePercentRating = averageRating * 20
     }
   </div>
   <div
-    class="p-2 pt-5 pb-2 border rounded-lg shadow overflow-hidden dark:border-gray-700 dark:shadow-gray-900"
+    class=`p-1 pt-5 pb-2 lg:border-none lg:shadow-none ${reviews.length > 0 ? "border-t" : "border rounded-lg"} shadow overflow-hidden dark:border-gray-700 dark:shadow-gray-900 mx-auto`
   >
     <div
       class=`flex justify-between mb-5 ${reviews.length > 0 ? "" : "hidden"}`
@@ -83,7 +84,12 @@ const averagePercentRating = averageRating * 20
       </div>
       <CircularProgress percentRating={averagePercentRating} />
     </div>
-    <div class="border-t border-gray-100 pt-5">
+    <div class=`${reviews.length && "border-t border-gray-200 pt-5"}`>
+      {
+        reviews.length === 0 && (
+          <p class="mb-5">Пока никто не оставил отзыв. Будьте первым!</p>
+        )
+      }
       <div class="flex items-center mb-5">
         <span class="bg-green-600 font-semibold text-white mr-1.5 rounded">
           &nbsp;+100 ₴&nbsp;</span
@@ -94,7 +100,7 @@ const averagePercentRating = averageRating * 20
       <button
         type="button"
         data-hs-overlay="#hs-full-screen-modal-below-sm"
-        class="w-full mb-5 py-2 text-lg px-4 inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-yellow-500 text-white hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+        class="w-full lg:w-[15rem] mb-6 py-2 text-lg px-4 inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-yellow-500 text-white hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
       >
         Написать отзыв
       </button>
@@ -102,3 +108,13 @@ const averagePercentRating = averageRating * 20
     </div>
   </div>
 </section>
+
+<style>
+  @media (min-width: 1024px) {
+    #reviews {
+      -webkit-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
+      -moz-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
+      box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
+    }
+  }
+</style>

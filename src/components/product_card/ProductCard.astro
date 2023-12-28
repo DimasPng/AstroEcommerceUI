@@ -30,7 +30,7 @@ const { title: category_name } = Astro.props.product.category
 
 <section class="pr-2.5 pb-2.5 pl-2.5">
   <Breadcrumbs url={category} name={category_name} />
-  <h1 class="font-semibold text-lg leading-tight mb-2.5">
+  <h1 class="font-semibold text-lg xl:text-2xl leading-tight mb-2.5">
     {title}
   </h1>
   <div class="flex mb-2">
@@ -50,7 +50,7 @@ const { title: category_name } = Astro.props.product.category
   <form id="productForm" method="get" action="#">
     <button
       id="productBtn"
-      class=`mb-5 w-full py-2 px-3 text-lg inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-500 focus:outline-none focus:ring-1 focus:ring-green-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:ring-1 disabled:bg-gray-300 disabled:text-gray-600 dark:focus:ring-gray-600`
+      class=`mb-5 w-full py-2 px-3 text-lg inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-green-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:ring-1 disabled:bg-gray-300 disabled:text-gray-600 dark:focus:ring-gray-600`
       disabled={quantity <= 0}
     >
       <Icon pack="ph" name="shopping-cart-simple" class="w-8" />
@@ -59,11 +59,13 @@ const { title: category_name } = Astro.props.product.category
   </form>
   <Delivery quantity={quantity} />
   <Guarantee />
-  <section class="mb-5">
-    <h2 class="text-2xl font-bold mb-5">Описание</h2>
+
+  <section class="mb-5 container mx-auto">
+    <h2 class="text-2xl xl:text-3xl font-bold mb-5">Описание</h2>
     <Fragment set:html={description} />
   </section>
   <Characteristics characteristics={characteristics} />
   <Testimonials reviews={reviews} />
+
   <CommentForm productId={id} />
 </section>

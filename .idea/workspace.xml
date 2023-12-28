@@ -5,24 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/js/constants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/Rating.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/Likes.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/api/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main_page/Bestsellers.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main_page/Bestsellers.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/images/logo_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/images/logo_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/header/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/header/Header.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/header/components/SideBarMenu.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/header/components/SideBarMenu.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Testimonials.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/CircularProgress.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/CircularProgress.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/CommentForm.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/form_review/CommentForm.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/RatingReview.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/form_review/RatingReview.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/TestimonialCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/ReviewCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[product].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category]/[product].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/ReviewCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/ReviewCard.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Layout.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Layout.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/LayoutProduct.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/LayoutProduct.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +33,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DimasPng&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0bc545e0-4813-489e-b4e1-3d55b03968c0" />
+        <option name="url" value="https://github.com/DimasPng/internetshop_front.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,7 +79,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;F:\\Кодинг\\web html\\internetshopFront\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -81,11 +89,11 @@
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images\product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components\card_review" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components\form_review" />
       <recent name="F:\Кодинг\web html\internetshopFront\public\js" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\js" />
-      <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components" />
     </key>
   </component>
   <component name="RunManager">
@@ -134,7 +142,13 @@
       <workItem from="1703153433505" duration="23000" />
       <workItem from="1703153499132" duration="12326000" />
       <workItem from="1703176168795" duration="37974000" />
-      <workItem from="1703410479322" duration="20417000" />
+      <workItem from="1703410479322" duration="28634000" />
+      <workItem from="1703514060523" duration="13096000" />
+      <workItem from="1703612500885" duration="465000" />
+      <workItem from="1703612988076" duration="14305000" />
+      <workItem from="1703697822574" duration="180000" />
+      <workItem from="1703758962809" duration="61000" />
+      <workItem from="1703759110838" duration="9699000" />
     </task>
     <servers />
   </component>
