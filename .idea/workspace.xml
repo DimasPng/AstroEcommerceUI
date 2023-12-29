@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/AddReviewBtn.astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/MainProductRating.astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/Tabs.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/general/Breadcrumbs.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/Breadcrumbs.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Delivery.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Delivery.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Guarantee.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Guarantee.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[product].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category]/[product].astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +141,7 @@
       <workItem from="1703697822574" duration="180000" />
       <workItem from="1703758962809" duration="61000" />
       <workItem from="1703759110838" duration="13920000" />
-      <workItem from="1703788244972" duration="9503000" />
+      <workItem from="1703788244972" duration="11099000" />
     </task>
     <servers />
   </component>
