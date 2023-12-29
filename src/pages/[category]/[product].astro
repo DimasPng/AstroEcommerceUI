@@ -1,9 +1,10 @@
 ---
 import getData from '../../js/api/api.js'
 import Footer from '../../components/general/Footer.astro'
-import Product from '../../components/product_card/ProductCard.astro'
+import CurrentProduct from '../../components/product_card/ProductCard.astro'
 import Header from '../../components/general/header/Header.astro'
 import LayoutProduct from '../../layouts/LayoutProduct.astro'
+import { Category, Product } from '../../js/types'
 
 export async function getStaticPaths() {
   const [all_categories, product] = await getData()
@@ -18,6 +19,11 @@ export async function getStaticPaths() {
   })
 }
 
+interface Props {
+  prod: Product
+  all_categories: Category[]
+}
+
 const { category, product } = Astro.params
 const { prod, all_categories } = Astro.props
 ---
@@ -25,7 +31,7 @@ const { prod, all_categories } = Astro.props
 <LayoutProduct product={prod}>
   <Header />
   <main class="flex-grow">
-    <Product product={prod} />
+    <CurrentProduct product={prod} />
   </main>
   <Footer />
 </LayoutProduct>

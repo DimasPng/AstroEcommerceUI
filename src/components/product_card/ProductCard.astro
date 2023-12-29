@@ -10,11 +10,14 @@ import Rating from './components/Rating.astro'
 import Breadcrumbs from '../general/Breadcrumbs.astro'
 import Characteristics from './components/Characteristics.astro'
 import Testimonials from './components/testimonials/Reviews.astro'
+import { Product } from '../../js/types'
 
 interface Props {
-  product: object
+  product: Product
 }
+
 const { category } = Astro.params
+
 const {
   id,
   title,
@@ -25,47 +28,83 @@ const {
   characteristics,
   reviews,
 } = Astro.props.product
+
 const { title: category_name } = Astro.props.product.category
 ---
 
 <section class="pr-2.5 pb-2.5 pl-2.5">
   <Breadcrumbs url={category} name={category_name} />
-  <h1 class="font-semibold text-lg xl:text-2xl leading-tight mb-2.5">
-    {title}
-  </h1>
-  <div class="flex mb-2">
-    <Rating />
-    <span>9 отзывов</span>
+
+  <div class="container mx-auto lg:px-4">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-x-20">
+      <div>
+        <div class="lg:hidden">
+          <h1 class="font-semibold text-lg xl:text-2xl leading-tight mb-2.5">
+            {title}
+          </h1>
+          <div class="flex mb-2">
+            <Rating />
+            <span>9 отзывов</span>
+          </div>
+        </div>
+        <ProductSlider images={images} />
+      </div>
+      <div>
+        <div class="hidden lg:block">
+          <h1 class="font-semibold text-lg xl:text-2xl leading-tight mb-2.5">
+            {title}
+          </h1>
+          <div class="flex mb-2">
+            <Rating />
+            <span>9 отзывов</span>
+          </div>
+        </div>
+        <!--Price-->
+        <div class="text-xl">
+          Цена: <span class="text-xl font-bold">{price} ₴</span>
+        </div>
+        <div
+          class=`${quantity > 0 ? 'text-green-600' : 'text-black'} font-semibold mb-2`
+        >
+          {quantity > 0 ? 'Есть в наличии' : 'Нет в наличии'}
+        </div>
+        <form id="productForm" method="get" action="#">
+          <button
+            id="productBtn"
+            class=`mb-5 w-full py-2 px-3 text-lg inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-green-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:ring-1 disabled:bg-gray-300 disabled:text-gray-600 dark:focus:ring-gray-600`
+            disabled={quantity <= 0}
+          >
+            <Icon pack="ph" name="shopping-cart-simple" class="w-8" />
+             Купить
+          </button>
+        </form>
+        <Delivery quantity={quantity} />
+        <Guarantee />
+      </div>
+    </div>
   </div>
-  <ProductSlider images={images} />
-  <!--Price-->
-  <div class="text-xl">
-    Цена: <span class="text-xl font-bold">{price} ₴</span>
-  </div>
+
   <div
-    class=`${quantity > 0 ? 'text-green-600' : 'text-black'} font-semibold mb-2`
+    id="description"
+    class="container mx-auto lg:mb-10 lg:px-8 lg:py-5 lg:pb-6 lg:rounded-xl bg-white"
   >
-    {quantity > 0 ? 'Есть в наличии' : 'Нет в наличии'}
+    <section class="mb-5 container mx-auto">
+      <h2 class="text-2xl xl:text-3xl font-bold mb-5">Описание</h2>
+      <Fragment set:html={description} />
+    </section>
+    <Characteristics characteristics={characteristics} />
+    <Testimonials reviews={reviews} />
+
+    <CommentForm productId={id} />
   </div>
-  <form id="productForm" method="get" action="#">
-    <button
-      id="productBtn"
-      class=`mb-5 w-full py-2 px-3 text-lg inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-500 focus:outline-none focus:ring-1 focus:ring-green-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:ring-1 disabled:bg-gray-300 disabled:text-gray-600 dark:focus:ring-gray-600`
-      disabled={quantity <= 0}
-    >
-      <Icon pack="ph" name="shopping-cart-simple" class="w-8" />
-       Купить
-    </button>
-  </form>
-  <Delivery quantity={quantity} />
-  <Guarantee />
-
-  <section class="mb-5 container mx-auto">
-    <h2 class="text-2xl xl:text-3xl font-bold mb-5">Описание</h2>
-    <Fragment set:html={description} />
-  </section>
-  <Characteristics characteristics={characteristics} />
-  <Testimonials reviews={reviews} />
-
-  <CommentForm productId={id} />
 </section>
+
+<style>
+  @media (min-width: 1024px) {
+    #description {
+      -webkit-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
+      -moz-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
+      box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
+    }
+  }
+</style>

@@ -8,8 +8,8 @@ interface Props {
 const { quantity } = Astro.props
 ---
 
-<div class="border border-1 rounded-xl p-4 bg-gray-50 mb-4">
-  <div class="flex items-start mb-3">
+<div class="border border-1 rounded-xl bg-gray-50 mb-4 container mx-auto">
+  <div class="flex items-start p-4">
     <Icon pack="iconoir" name="delivery-truck" class="w-10 mr-3" />
     <div>
       <div class="leading-tight">
@@ -21,7 +21,7 @@ const { quantity } = Astro.props
     </div>
   </div>
 
-  <div class="flex items-start">
+  <div class="flex items-start border-t border-1 p-4">
     <Icon pack="la" name="biking" class="w-10 mr-2" />
     <div>
       <div class="leading-tight">Доставка до дверей, курьером Новой Почты</div>

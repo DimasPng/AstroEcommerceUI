@@ -5,6 +5,8 @@ import Footer from '../components/general/Footer.astro'
 import Header from '../components/general/header/Header.astro'
 import ProductThumbnail from '../components/general/ProductThumbnails.astro'
 import Breadcrumbs from '../components/general/Breadcrumbs.astro'
+import { Category, Product } from '../js/types'
+
 export async function getStaticPaths() {
   const [categories, products] = await getData()
 
@@ -27,6 +29,11 @@ export async function getStaticPaths() {
       props: { cat, currProducts },
     }
   })
+}
+
+interface Props {
+  cat: Category
+  currProducts: Product[]
 }
 
 const { category } = Astro.params

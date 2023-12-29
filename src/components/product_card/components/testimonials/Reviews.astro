@@ -2,9 +2,12 @@
 import CircularProgress from './components/CircularProgress.astro'
 import Tooltip from './components/Tooltip.astro'
 import ReviewCard from './components/card_review/ReviewCard.astro'
+import AddReviewBtn from './AddReviewBtn.astro'
+import MainProductRating from './components/MainProductRating.astro'
+import { Review } from '../../../../js/types'
 
 interface Props {
-  reviews: object
+  reviews: Review[]
 }
 
 const { reviews } = Astro.props
@@ -17,16 +20,13 @@ const averageRating = (sumRating / reviews.length).toFixed(1)
 const averagePercentRating = averageRating * 20
 ---
 
-<section
-  id="reviews"
-  class="w-full custom-shadow overflow-hidden bg-white lg:px-8 lg:pb-6 lg:rounded-xl pt-5 mx-auto container"
->
+<section class="w-full custom-shadow overflow-hidden pt-5">
   <div class="flex justify-start items-center mb-4">
     <h2 class="text-2xl xl:text-3xl font-bold">Отзывы</h2>{
       reviews.length > 0 && (
         <span class="text-2xl xl:text-3xl">
           :{' '}
-          <span class="text-xl ml-1 font-bold text-orange-500">
+          <span class="text-xl xl:text-2xl ml-1 font-bold text-orange-500">
             {reviews.length}
           </span>
         </span>
@@ -34,87 +34,32 @@ const averagePercentRating = averageRating * 20
     }
   </div>
   <div
-    class=`p-1 pt-5 pb-2 lg:border-none lg:shadow-none ${reviews.length > 0 ? "border-t" : "border rounded-lg"} shadow overflow-hidden dark:border-gray-700 dark:shadow-gray-900 mx-auto`
+    class=`p-1 pt-5 lg:pt-0 pb-2 lg:shadow-none ${reviews.length > 0 ? "" : "border rounded-lg"} shadow overflow-hidden dark:border-gray-700 dark:shadow-gray-900 mx-auto`
   >
     <div
-      class=`flex justify-between mb-5 ${reviews.length > 0 ? "" : "hidden"}`
+      class=`flex justify-between mb-5 lg:p-6 lg:border lg:border-1 lg:rounded-lg lg:items-center ${reviews.length > 0 ? "lg:grid lg:grid-cols-3" : "hidden"}`
     >
-      <div>
-        <p class="font-semibold mb-1.5">Оценка пользователей</p>
-        <div class="flex">
-          <span
-            class="uppercase text-5xl font-bold text-orange-500 opacity-80 mr-2"
-            >{averageRating}</span
-          >
-          <div class="flex flex-col">
-            <svg width="100" height="32" viewBox="0 0 160 32">
-              <defs>
-                <mask id="perc">
-                  <rect x="0" y="0" width="100%" height="100%" fill="white"
-                  ></rect>
-                  <rect
-                    x=`${averagePercentRating}%`
-                    y="0"
-                    width="100%"
-                    height="100%"
-                    fill="grey"></rect>
-                </mask>
-
-                <symbol viewBox="0 0 32 32" id="star">
-                  <path
-                    d="M31.547 12a.848.848 0 00-.677-.577l-9.427-1.376-4.224-8.532a.847.847 0 00-1.516 0l-4.218 8.534-9.427 1.355a.847.847 0 00-.467 1.467l6.823 6.664-1.612 9.375a.847.847 0 001.23.893l8.428-4.434 8.432 4.432a.847.847 0 001.229-.894l-1.615-9.373 6.822-6.665a.845.845 0 00.214-.869z"
-                  ></path>
-                </symbol>
-                <symbol viewBox="0 0 160 32" id="stars">
-                  <use xlink:href="#star" x="-64" y="0"></use>
-                  <use xlink:href="#star" x="-32" y="0"></use>
-                  <use xlink:href="#star" x="0" y="0"></use>
-                  <use xlink:href="#star" x="32" y="0"></use>
-                  <use xlink:href="#star" x="64" y="0"></use>
-                </symbol>
-              </defs>
-
-              <use xlink:href="#stars" fill="orange" mask="url(#perc)"></use>
-            </svg>
-            <span class="leading-tight text-gray-600"
-              >Отзывы ({reviews.length})</span
-            >
-          </div>
-        </div>
-      </div>
-      <CircularProgress percentRating={averagePercentRating} />
-    </div>
-    <div class=`${reviews.length && "border-t border-gray-200 pt-5"}`>
-      {
-        reviews.length === 0 && (
-          <p class="mb-5">Пока никто не оставил отзыв. Будьте первым!</p>
-        )
-      }
-      <div class="flex items-center mb-5">
-        <span class="bg-green-600 font-semibold text-white mr-1.5 rounded">
-          &nbsp;+100 ₴&nbsp;</span
-        > за полезный отзыв
-        <Tooltip />
+      <div class="lg:justify-self-center">
+        <MainProductRating
+          reviews={reviews}
+          averageRating={averageRating}
+          averagePercentRating={averagePercentRating}
+        />
       </div>
 
-      <button
-        type="button"
-        data-hs-overlay="#hs-full-screen-modal-below-sm"
-        class="w-full lg:w-[15rem] mb-6 py-2 text-lg px-4 inline-flex justify-center items-center gap-x-2 font-semibold rounded-lg border border-transparent bg-yellow-500 text-white hover:bg-yellow-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-      >
-        Написать отзыв
-      </button>
-      {reviews.map((review) => <ReviewCard review={review} />)}
+      <div class="lg:border-r lg:border-l lg:border-gray-300 lg:px-4">
+        <CircularProgress percentRating={averagePercentRating} />
+      </div>
+
+      <div class=`hidden lg:block lg:justify-self-center`>
+        <AddReviewBtn reviews={reviews} />
+      </div>
     </div>
+
+    <div class=`${reviews.length && "border-t border-gray-200 py-5 lg:hidden"}`>
+      <AddReviewBtn reviews={reviews} />
+    </div>
+
+    {reviews.map((review) => <ReviewCard review={review} />)}
   </div>
 </section>
-
-<style>
-  @media (min-width: 1024px) {
-    #reviews {
-      -webkit-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
-      -moz-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
-      box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
-    }
-  }
-</style>

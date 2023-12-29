@@ -6,10 +6,7 @@ interface Props {
 const { characteristics } = Astro.props
 ---
 
-<section
-  id="characteristics"
-  class="mb-4 lg:mb-10 container mx-auto bg-white lg:px-8 lg:py-5 lg:pb-6 lg:rounded-xl"
->
+<section id="characteristics" class="mb-4 container mx-auto">
   <h2 class="text-2xl xl:text-3xl font-bold mb-5">Характеристики</h2>
   <div class="flex flex-col">
     <div class="-m-1.5 overflow-x-auto">
@@ -40,13 +37,3 @@ const { characteristics } = Astro.props
     </div>
   </div>
 </section>
-
-<style>
-  @media (min-width: 1024px) {
-    #characteristics {
-      -webkit-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
-      -moz-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
-      box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
-    }
-  }
-</style>
