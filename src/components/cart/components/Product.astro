@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets'
+import exampleProduct from '../../../assets/images/exampleProduct.jpg'
+import InputNumber from './InputNumber.astro'
+---
+
+<div class="flex items-center px-3.5 mb-5">
+  <Image
+    src={exampleProduct}
+    width="72"
+    height="72"
+    alt="Product 1"
+    class="object-contain mr-4"
+  />
+  <div>
+    <div class="flex justify-between">
+      <div class="mb-2.5 text-sm mr-3">
+        Зарядная станция Könner & Söhnen KS 200PS 320 Вт
+      </div>
+      <button
+        type="button"
+        class="flex justify-center items-center w-6 h-6 text-sm font-semibold rounded-full border border-transparent text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+      >
+        <span class="sr-only">Close</span>
+        <svg
+          class="flex-shrink-0 w-5 h-5"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex justify-between items-center">
+      <InputNumber />
+      <div class="text-lg uppercase">1 980 ₴</div>
+    </div>
+  </div>
+</div>

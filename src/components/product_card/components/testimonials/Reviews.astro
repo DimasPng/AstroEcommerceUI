@@ -20,7 +20,10 @@ const averageRating = (sumRating / reviews.length).toFixed(1)
 const averagePercentRating = averageRating * 20
 ---
 
-<section class="w-full custom-shadow overflow-hidden pt-5">
+<section
+  class="w-full custom-shadow overflow-hidden pt-5 tab-section"
+  id="reviews"
+>
   <div class="flex justify-start items-center mb-4">
     <h2 class="text-2xl xl:text-3xl font-bold">Отзывы</h2>{
       reviews.length > 0 && (

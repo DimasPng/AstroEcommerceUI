@@ -5,10 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/product_card/components/Tabs.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/exampleProduct.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cart/components/InputNumber.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cart/components/Product.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cart/Cart.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart/Cart.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/Breadcrumbs.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/Breadcrumbs.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/footer/Footer.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/header/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/header/Header.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Tabs.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Tabs.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[product].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category]/[product].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,10 +93,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images" />
+      <recent name="F:\Кодинг\web html\internetshopFront\src\components\general\footer" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components\card_review" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components\form_review" />
       <recent name="F:\Кодинг\web html\internetshopFront\public\js" />
-      <recent name="F:\Кодинг\web html\internetshopFront\src\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -141,7 +152,8 @@
       <workItem from="1703697822574" duration="180000" />
       <workItem from="1703758962809" duration="61000" />
       <workItem from="1703759110838" duration="13920000" />
-      <workItem from="1703788244972" duration="11099000" />
+      <workItem from="1703788244972" duration="30132000" />
+      <workItem from="1704096285979" duration="10259000" />
     </task>
     <servers />
   </component>

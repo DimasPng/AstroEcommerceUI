@@ -1,30 +1,31 @@
 ---
-
+import Product from './components/Product.astro'
 ---
 
 <div
-  id="cartPopUp"
-  class="hs-overlay hidden w-full h-full fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto pointer-events-none"
+  id="cartModal"
+  class="flex flex-col hidden min-h-screen hs-overlay w-full h-screen fixed top-0 start-0 z-[60] overflow-x-hidden overflow-y-auto bg-white"
 >
   <div
-    class="hs-overlay-open:mt-0 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 -mt-10 opacity-0 transition-all max-w-full w-full sm:hs-overlay-open:mt-10 sm:mt-0 sm:max-w-lg sm:mx-auto"
+    class="flex-grow hs-overlay-open:mt-0 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-10 opacity-0 transition-all max-w-full w-full sm:hs-overlay-open:mt-10 sm:mt-0 sm:max-w-lg sm:mx-auto"
   >
     <div
       class="flex flex-col bg-white sm:border sm:rounded-xl sm:shadow-sm dark:bg-gray-800 sm:dark:border-gray-700"
     >
       <div
-        class="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700"
+        class="flex justify-between items-center py-3 px-3.5 border-b dark:border-gray-700"
       >
-        <h3 class="font-bold text-gray-800 dark:text-white">Добавить отзыв</h3>
+        <h3 class="font-semibold text-lg text-gray-700 dark:text-white">
+          Корзина
+        </h3>
         <button
           type="button"
-          id="closeBtn"
-          class="flex justify-center items-center w-7 h-7 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-          data-hs-overlay="#cartPopUp"
+          class="flex justify-center items-center w-9 h-9 text-sm font-semibold rounded-full border border-transparent text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+          data-hs-overlay="#cartModal"
         >
           <span class="sr-only">Close</span>
           <svg
-            class="flex-shrink-0 w-4 h-4"
+            class="flex-shrink-0 w-7 h-7"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -40,13 +41,31 @@
           </svg>
         </button>
       </div>
-      <div class="max-w-[85rem] py-4 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div class="max-w-[85rem] py-4 lg:px-8 lg:py-14 mx-auto">
         <div id="PopUpCard" class="mx-auto max-w-2xl">
           <!-- Card -->
-          <div>Work</div>
+          <Product />
           <!-- End Card -->
         </div>
       </div>
     </div>
+  </div>
+  <div class="flex flex-col py-5 px-4 border-t dark:border-gray-700">
+    <div class="flex justify-between items-center mb-4">
+      <div
+        class="font-semibold text-lg text-gray-700 dark:text-white flex justify-between"
+      >
+        Итого:
+      </div>
+      <div class="font-semibold text-lg">
+        <span id="totalPrice">1 890</span> ₴
+      </div>
+    </div>
+    <button
+      type="button"
+      class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+    >
+      Оформить заказ
+    </button>
   </div>
 </div>

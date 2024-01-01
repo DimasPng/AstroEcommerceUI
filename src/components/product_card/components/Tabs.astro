@@ -2,11 +2,168 @@
 
 ---
 
-<div>
-  <ul>
-    <li>О товаре</li>
-    <li>Характеристики</li>
-    <li>Описание</li>
-    <li>Отзывы</li>
-  </ul>
-</div>
+<ul id="tabs" class="flex border-b border-1 border-gray-200 container mx-auto">
+  <li class="hover-effect p-2 mr-2" data-target="#aboutProduct">О товаре</li>
+  <li class="hover-effect p-2 mr-2" data-target="#description">Описание</li>
+  <li class="hover-effect p-2 mr-2" data-target="#productCharacteristics">
+    Характеристики
+  </li>
+  <li class="hover-effect p-2" data-target="#reviews">Отзывы</li>
+</ul>
+
+<style>
+  .hover-effect {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hover-effect::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ea580c;
+    transition:
+      width 0.5s ease,
+      left 0.5s ease;
+  }
+
+  .hover-effect:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .hover-effect:hover {
+    color: #ea580c;
+  }
+
+  .active::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .active {
+    color: #ea580c;
+  }
+
+  .clicked {
+    color: #ea580c;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', initialize)
+
+  let lastScrollPosition = 0
+
+  function initialize() {
+    setupTabs()
+    setupScrollListeners()
+    updateTabStyles()
+  }
+
+  function setupTabs() {
+    const tabs = document.querySelectorAll('.hover-effect')
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => handleTabClick(tab))
+    })
+  }
+
+  function handleTabClick(clickedTab) {
+    const tabs = document.querySelectorAll('.hover-effect')
+    const offsetForStickyHeader = 70
+    const targetSectionSelector = clickedTab.dataset.target
+    const targetSection = document.querySelector(targetSectionSelector)
+
+    tabs.forEach((tab) => tab.classList.remove('active', 'clicked'))
+    clickedTab.classList.add('clicked', 'active')
+
+    if (targetSection) {
+      window.scrollTo({
+        top: targetSection.offsetTop - offsetForStickyHeader,
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  function setupScrollListeners() {
+    window.addEventListener('scroll', () => {
+      updateTabStyles()
+      updateActiveTab()
+    })
+  }
+
+  function updateTabStyles() {
+    const tabsWrapper = document.querySelector('#tabsWrapper')
+    const tabsUl = document.querySelector('#tabs')
+
+    if (window.pageYOffset > 0) {
+      tabsWrapper.style.backgroundColor = 'white'
+      tabsUl.classList.remove('border-b')
+    } else {
+      tabsWrapper.style.backgroundColor = ''
+      tabsUl.classList.add('border-b')
+    }
+  }
+
+  function updateActiveTab() {
+    const currentScrollPosition = window.pageYOffset
+    const isScrollingUp = currentScrollPosition < lastScrollPosition
+    lastScrollPosition = currentScrollPosition
+
+    if (isScrollingUp) {
+      updateTabsForScrollingUp()
+    } else {
+      updateTabsForScrollingDown()
+    }
+  }
+
+  function updateTabsForScrollingUp() {
+    const tabs = document.querySelectorAll('.hover-effect')
+    const sections = document.querySelectorAll('.tab-section')
+    const topOffset = 300 // Отступ от верхней границы окна
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop
+      const isSectionTopVisible = sectionTop <= window.pageYOffset + topOffset
+
+      if (isSectionTopVisible) {
+        updateTabState(section.id, tabs)
+      }
+    })
+  }
+
+  function updateTabsForScrollingDown() {
+    const tabs = document.querySelectorAll('.hover-effect')
+    const sections = document.querySelectorAll('.tab-section')
+    const offsetForStickyHeader = 50
+
+    let currentSectionId = getCurrentSectionId(sections, offsetForStickyHeader)
+    updateTabState(currentSectionId, tabs)
+  }
+
+  function updateTabState(activeSectionId, tabs) {
+    tabs.forEach((tab) => {
+      tab.classList.remove('active', 'clicked')
+      if (tab.dataset.target === '#' + activeSectionId) {
+        tab.classList.add('active')
+      }
+    })
+  }
+
+  function getCurrentSectionId(sections, offset) {
+    for (const section of sections) {
+      const sectionTop = section.offsetTop - offset
+      const sectionHeight = section.clientHeight
+      if (
+        window.pageYOffset >= sectionTop &&
+        window.pageYOffset < sectionTop + sectionHeight
+      ) {
+        return section.getAttribute('id')
+      }
+    }
+    return null
+  }
+</script>

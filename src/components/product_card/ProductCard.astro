@@ -11,6 +11,7 @@ import Breadcrumbs from '../general/Breadcrumbs.astro'
 import Characteristics from './components/Characteristics.astro'
 import Testimonials from './components/testimonials/Reviews.astro'
 import { Product } from '../../js/types'
+import Tabs from './components/Tabs.astro'
 
 interface Props {
   product: Product
@@ -32,10 +33,13 @@ const {
 const { title: category_name } = Astro.props.product.category
 ---
 
-<section class="pr-2.5 pb-2.5 pl-2.5">
+<section class="pr-2.5 pb-2.5 pl-2.5 lg:pr-0 lg:pl-0" id="characteristics">
   <Breadcrumbs url={category} name={category_name} />
+  <div id="tabsWrapper" class="hidden lg:block mb-4 mx-auto sticky top-14 z-40">
+    <Tabs />
+  </div>
 
-  <div class="container mx-auto lg:px-4">
+  <div class="container tab-section mx-auto lg:px-4" id="aboutProduct">
     <div class="lg:grid lg:grid-cols-2 lg:gap-x-20">
       <div>
         <div class="lg:hidden">
@@ -85,10 +89,10 @@ const { title: category_name } = Astro.props.product.category
   </div>
 
   <div
-    id="description"
+    id="mainSection"
     class="container mx-auto lg:mb-10 lg:px-14 lg:py-10 lg:pb-6 lg:rounded-xl bg-white"
   >
-    <section class="mb-5 container mx-auto">
+    <section class="mb-5 container mx-auto tab-section" id="description">
       <h2 class="text-2xl xl:text-3xl font-bold mb-5">Описание</h2>
       <Fragment set:html={description} />
     </section>
@@ -101,7 +105,7 @@ const { title: category_name } = Astro.props.product.category
 
 <style>
   @media (min-width: 1024px) {
-    #description {
+    #mainSection {
       -webkit-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
       -moz-box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
       box-shadow: 0px 0px 25px -6px rgba(34, 60, 80, 0.25);
