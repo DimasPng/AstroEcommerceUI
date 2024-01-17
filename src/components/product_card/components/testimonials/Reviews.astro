@@ -16,7 +16,7 @@ const sumRating = reviews.reduce((acc, review) => {
   return acc + review.rating
 }, 0)
 
-const averageRating = (sumRating / reviews.length).toFixed(1)
+const averageRating = Number((sumRating / reviews.length).toFixed(1))
 const averagePercentRating = averageRating * 20
 ---
 

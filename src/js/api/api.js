@@ -1,6 +1,6 @@
 export default async function getData() {
   try {
-    const request = await fetch("http://127.0.0.1:8000/api/data");
+    const request = await fetch("http://5.35.91.65/api/data");
     if (!request.ok) {
       throw new Error(`HTTP error! Status: ${request.status}`);
     }
