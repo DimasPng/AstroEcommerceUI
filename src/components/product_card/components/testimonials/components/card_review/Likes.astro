@@ -160,7 +160,7 @@ const { reviewId, likes, dislikes } = Astro.props
   function sendLikesAmountToServer(reviewId, likes, dislikes) {
     console.log('Sending to server:', { reviewId, likes, dislikes })
 
-    fetch('http://5.35.91.65/reviews/likes', {
+    fetch('http://91.219.60.248/reviews/likes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

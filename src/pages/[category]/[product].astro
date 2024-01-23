@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+export const prerender = false
+
+import getData from '../../js/api/api.js'
+import Footer from '../../components/general/footer/Footer.astro'
+import CurrentProduct from '../../components/product_card/ProductCard.astro'
+import Header from '../../components/general/header/Header.astro'
+import LayoutProduct from '../../layouts/LayoutProduct.astro'
+import { Category, Product } from '../../js/types.js'
+
+const [all_categories, products] = await getData()
+
+const { product } = Astro.params
+
+const prod = products.find((prod) => prod.uri_product === product)
+---
+
+<LayoutProduct product={prod}>
+  <Layout>
+    <Header />
+    <main class="flex-grow">
+      <CurrentProduct product={prod} />
+    </main>
+    <Footer />
+  </Layout>
+</LayoutProduct>

@@ -5,20 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd14b7f3-9ef4-4beb-a4cb-392de0cf400e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/exampleProduct.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cart/components/InputNumber.astro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/cart/components/Product.astro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/[category]/[product].astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart/Cart.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart/Cart.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/general/Breadcrumbs.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/Breadcrumbs.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/general/Footer.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/footer/Footer.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/general/header/Header.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/header/Header.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/ProductCard.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Characteristics.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/Tabs.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/Tabs.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/Reviews.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/general/ProductThumbnails.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/general/ProductThumbnails.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/Likes.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/card_review/Likes.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/form_review/CommentForm.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/product_card/components/testimonials/components/form_review/CommentForm.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/api/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/api/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/LayoutProduct.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/LayoutProduct.astro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/[category].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category].astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[product].astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[category]/[product].astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/[category]/[...product].astro" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/index.astro" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.astro" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,7 +68,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/Кодинг/web html/internetshopFront/src/assets/images/product&quot;,
+    &quot;last_opened_file_path&quot;: &quot;//wsl$/Ubuntu-22.04/home/laravel/projects/internetshop_front&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -92,11 +88,11 @@
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images\product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu-22.04\home\laravel\projects\internetshop_front\src\pages\[category]" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\assets\images" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\general\footer" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components\card_review" />
       <recent name="F:\Кодинг\web html\internetshopFront\src\components\product_card\components\testimonials\components\form_review" />
-      <recent name="F:\Кодинг\web html\internetshopFront\public\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -154,10 +150,27 @@
       <workItem from="1703759110838" duration="13920000" />
       <workItem from="1703788244972" duration="30132000" />
       <workItem from="1704096285979" duration="10259000" />
+      <workItem from="1705596044283" duration="4085000" />
+      <workItem from="1705657763308" duration="596000" />
+      <workItem from="1705740563580" duration="559000" />
+      <workItem from="1705755159650" duration="5970000" />
+      <workItem from="1705842871851" duration="14000" />
+      <workItem from="1706015501562" duration="3653000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

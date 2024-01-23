@@ -203,7 +203,7 @@ const { productId } = Astro.props
                 </div>
               </div><div class="font-semibold mt-4 hidden" id="errorMessage">
                 <span class="text-red-600">Произошла ошибка.</span><br />
-                 Попробуйте отправить отзыв повторно.
+                Попробуйте отправить отзыв повторно.
               </div>
               <div class="w-90%"></div>
               <div class="mt-6 mb-6 grid" id="submitButtonContainer">
@@ -268,7 +268,7 @@ const { productId } = Astro.props
     spinner.classList.remove('hidden')
 
     try {
-      const response = await fetch('http://5.35.91.65/reviews', {
+      const response = await fetch('http://91.219.60.248/reviews', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

@@ -1,4 +1,5 @@
 ---
+export const prerender = false
 import getData from '../js/api/api.js'
 import Layout from '../layouts/Layout.astro'
 import Footer from '../components/general/footer/Footer.astro'
@@ -7,37 +8,21 @@ import ProductThumbnail from '../components/general/ProductThumbnails.astro'
 import Breadcrumbs from '../components/general/Breadcrumbs.astro'
 import { Category, Product } from '../js/types'
 
-export async function getStaticPaths() {
-  const [categories, products] = await getData()
-
-  const productsByCategory = {}
-  products.forEach((product) => {
-    const categoryId = product.category.id
-
-    if (!productsByCategory[categoryId]) {
-      productsByCategory[categoryId] = []
-    }
-
-    productsByCategory[categoryId].push(product)
-  })
-
-  return categories.map((cat) => {
-    const categoryId = cat.id
-    const currProducts = productsByCategory[categoryId] || []
-    return {
-      params: { category: cat.uri_category },
-      props: { cat, currProducts },
-    }
-  })
-}
-
-interface Props {
-  cat: Category
-  currProducts: Product[]
-}
-
 const { category } = Astro.params
-const { cat, currProducts } = Astro.props
+
+const [categories, products] = await getData()
+
+const currentCategory = categories.find((cat) => {
+  return cat.uri_category === category
+})
+
+const allProducts = {}
+const currentProduct = products.forEach((prod) => {
+  if (!allProducts[prod.category.id]) {
+    allProducts[prod.category.id] = []
+  }
+  allProducts[prod.category.id].push(prod)
+})
 ---
 
 <Layout>
@@ -45,8 +30,10 @@ const { cat, currProducts } = Astro.props
   <main class="flex-grow">
     <section class="p-2.5">
       <Breadcrumbs url="" name="На главную" />
-      <h1 class="text-xl font-bold leading-tight mb-2">{cat.title}</h1>
-      <ProductThumbnail products={currProducts} />
+      <h1 class="text-xl font-bold leading-tight mb-2">
+        {currentCategory.title}
+      </h1>
+      <ProductThumbnail products={allProducts[currentCategory.id]} />
     </section>
   </main>
   <Footer />

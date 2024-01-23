@@ -1,6 +1,7 @@
 ---
 import MarkupProduct from '../components/product_card/components/MarkupProduct.astro'
 
+export const prerender = false
 interface Props {
   product: object
 }
@@ -16,8 +17,8 @@ const { title } = Astro.props.product
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>
-      {title} купить в Киеве, Харькове, Днепропетровске, Одессе, Запорожье,
-      Львове. {title} цена, описание, фото.
+      {title} купить в Киеве, Харькове, Днепропетровске, Одессе, Запорожье, Львове.
+      {title} цена, описание, фото.
     </title>
     <meta
       name="description"
